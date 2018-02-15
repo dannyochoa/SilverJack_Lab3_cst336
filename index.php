@@ -44,6 +44,17 @@
                     }
                 }
                 printGameState($allPlayer);
+                
+                function getImgURLForCardIndex($index){
+                    //get num from 0 - 51
+                    //return image url
+                    
+                    $suitIndex = floor($index / 13);
+                    
+                    echo "suitIndex: $suitIndex";
+                }
+                
+                getImgURLForCardIndex(51);
             ?>
         </div>
         
