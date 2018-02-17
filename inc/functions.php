@@ -51,16 +51,28 @@
 
     function printGameState($allPlayer)
     {
+        echo "<div id = color$color>";
+        echo "<table>";
         foreach($allPlayer as $player)
         {
-           // echo "<img src ='".$player['imgURL']."' />" ;
+            echo "<tr>";
+            echo "<th>";
+            echo "<img src ='".$player['imgURL']."' /> <br/>" ;
             echo $player['name'] . "<br/>";
+            echo "</th>";
+            echo "<th>";
             foreach($player['hand'] as $card)
             {
                 echo "<img src ='". $card ."' />" ;
             }
+            echo "</th>";
+            echo "<th id = points>";
             echo $player['points'] . "</br>";
+             echo "</th>";
+            echo "</tr>";
         }
+        echo "</table>";
+        echo "</div>";
     }
     
     function getHand($cards)
