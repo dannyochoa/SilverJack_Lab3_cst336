@@ -59,7 +59,9 @@
             echo "<tr>";
             echo "<th>";
             echo "<img src ='".$player['imgURL']."' /> <br/>" ;
+            echo "<div id=boxName>";
             echo $player['name'] . "<br/>";
+            echo "</div>";
             echo "</th>";
             echo "<th>";
             foreach($player['hand'] as $card)
@@ -99,7 +101,7 @@
             if(count($ans) > 10) // Limit for amount of cards to pull - Reason: Display of Points will move down
                 break;
                 
-            array_push($ans['playerHand'] ,$temp['card']);
+            array_push($ans['playerHand'], $temp['card']);
             $ans['playerPoints'] =  $ans['playerPoints'] + $temp['points'];
            // array_push($ans['playerHand'] ,$temp['card']);
            // $ans['points'] = $ans['points'] + $temp['points'];

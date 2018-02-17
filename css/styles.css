@@ -39,3 +39,7 @@ th {
     padding-left: 5em;
     margin: 0 auto;
 }
+
+#boxName {
+    background-color: orange;
+}
