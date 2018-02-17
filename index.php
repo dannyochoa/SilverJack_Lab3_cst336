@@ -12,10 +12,10 @@ include 'inc/functions.php'
     
     <body>
         <div id = "main">
-            <?php
-                play();
-            ?>
             <form>
+                <?php
+                    play();
+                ?>
                 <input type = "submit" value = "Play Again!"/>
             </form>
         </div>

@@ -3,8 +3,8 @@
     function initArrayWithDeck()
     {
         $cards = array(
-            'card' =>'',
-            'points'=> 0);
+            'points'=> 0,
+            'card' =>'');
         
         for($i = 0; $i < 52; $i++)
         {
@@ -132,9 +132,33 @@
             $cards = $temp['restOfcards'];
             $allPlayer[$i]['hand'] = $temp['playerHand'];
             $allPlayer[$i]['points'] = $temp['playerPoints'];
+            
         }
-                
+       
         printGameState($allPlayer);
+        getWinner($allPlayer);
     }
     
+    function getWinner($allPlayer){
+        asort($allPlayer);
+        $i=0;
+        foreach($allPlayer as $player){
+            if($player['points']>42){
+                unset($allPlayer[$i]);
+            }
+            $i + 1;
+        }
+        $j=0;
+        foreach($allPlayer as $player){
+            if($player[$j]['points']==42 && $player[$j + 1]['points']==42){
+                echo $player[$j]['name'] . $player[$j + 1]['name'] ." is the winner!";
+                break;
+            }
+            elseif($player[$j]['points']==42) echo $player[$j]['name'] . " is the winner!";
+            else{
+                
+                echo $player[$j] . " is the winner!";
+            }
+        }
+    }
 ?>
