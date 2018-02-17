@@ -31,14 +31,10 @@
                 $cardNumber = 13;
             }
             $cardlocation = $cardlocation . $cardNumber . ".png";
-            echo $i;
-            echo $cardlocation. "</br>";
-            
             $cards[$i]['card'] = $cardlocation;
-            if($cardNumber >= 10)
-                $cards[$i]['points'] = 10;
-            else
-                $cards[$i]['points'] = $cardNumber;
+            $cards[$i]['points'] = $cardNumber;
+            //echo $cards[$i]['card'];
+            //echo "<br>";
         }
         return $cards;
     }
@@ -74,12 +70,16 @@
             'playerPoints' => 0,
             'restOfcards' => array()
             );
-        for($i =0; $i < 5; $i++)
+        while($ans['playerPoints'] < 37)
         {
+            while(array_pop($cards) == null){
+                unset($cards[sizeof($cards)-1]);
+            }
             $temp = array_pop($cards);
-            if($temp == null)
-                echo "nullll";
-            echo "</br>";
+            //print_r($temp);
+            if($temp == 0 || $temp == null){
+                $temp = array_pop($cards);
+            }
             array_push($ans['playerHand'] ,$temp['card']);
             $ans['playerPoints'] =  $ans['playerPoints'] + $temp['points'];
            // array_push($ans['playerHand'] ,$temp['card']);
@@ -118,18 +118,16 @@
         
         $allPlayer = array($player1, $player2, $player3, $player4);
         $cards = initArrayWithDeck();
-        echo count($cards);
-        printCards($cards);
-
-    //     for($i = 0; $i < 4; $i++)
-    //     {
-    //         $temp = getHand($cards);
-    //         $cards = $temp['restOfcards'];
-    //         $allPlayer[$i]['hand'] = $temp['playerHand'];
-    //         $allPlayer[$i]['points'] = $temp['playerPoints'];
-    //     }
+        shuffle($cards);
+        for($i = 0; $i < 4; $i++)
+        {
+            $temp = getHand($cards);
+            $cards = $temp['restOfcards'];
+            $allPlayer[$i]['hand'] = $temp['playerHand'];
+            $allPlayer[$i]['points'] = $temp['playerPoints'];
+        }
                 
-    //   printGameState($allPlayer);
+        printGameState($allPlayer);
     }
     
 ?>
