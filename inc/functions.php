@@ -1,8 +1,10 @@
 <?php
     
-    function initArrayWithCards()
+    function initArrayWithDeck()
     {
-        $cards = array();
+        $cards = array(
+            'points'=> 0,
+            'card' =>'');
         
         for($i = 0; $i < 52; $i++)
         {
@@ -29,16 +31,23 @@
                 $cardNumber = 13;
             }
             $cardlocation = $cardlocation . $cardNumber . ".png";
-            array_push($cards, $cardlocation);
+            $cards[$i]['card'] = $cardlocation;
+            if($cardNumber >= 10)
+                $cards[$i]['points'] = 10;
+            else
+                $cards[$i]['points'] = $cardNumber;
         }
         return $cards;
     }
 
     function printCards($cards)
     {
+        $i = 0;
         foreach($cards as $c)
         {
-            echo "<img src ='".$c."' /> <br/>" ;
+            echo $i;
+            echo "<img src ='".$c['card']."' /> <br/>" ;
+            $i++;
         }
     }
 
@@ -47,10 +56,37 @@
     {
         foreach($allPlayer as $player)
         {
-            echo "<img src ='".$player['imgURL']."' />" ;
+           // echo "<img src ='".$player['imgURL']."' />" ;
             echo $player['name'] . "<br/>";
+            foreach($player['hand'] as $card)
+            {
+                echo "<img src ='". $card ."' />" ;
+            }
+            echo $player['points'] . "</br>";
         }
     }
+    
+    function getHand($cards)
+    {
+        $ans = array(
+            'playerHand' => array(),
+            'playerPoints' => 0,
+            'restOfcards' => array()
+            );
+        for($i =0; $i < 5; $i++)
+        {
+            $temp = array_pop($cards);
+            print_r($temp['card']);
+            echo "</br>";
+            array_push($ans['playerHand'] ,$temp['card']);
+            $ans['playerPoints'] =  $ans['playerPoints'] + $temp['points'];
+           // array_push($ans['playerHand'] ,$temp['card']);
+           // $ans['points'] = $ans['points'] + $temp['points'];
+        }
+        $ans['restOfcards'] = $cards;
+        return $ans;
+    }
+    
     function play()
     {
         
@@ -79,11 +115,18 @@
             );
         
         $allPlayer = array($player1, $player2, $player3, $player4);
-        
-                
-        printGameState($allPlayer);
-        $cards = initArrayWithCards();
+        $cards = initArrayWithDeck();
         printCards($cards);
+        shuffle($cards);
+        for($i = 0; $i < 4; $i++)
+        {
+          //  $temp = getHand($cards);
+            $cards = $temp['restOfcards'];
+            $allPlayer[$i]['hand'] = $temp['playerHand'];
+            $allPlayer[$i]['points'] = $temp['playerPoints'];
+        }
+                
+      //  printGameState($allPlayer);
     }
     
 ?>
