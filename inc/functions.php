@@ -51,7 +51,7 @@
 
     function printGameState($allPlayer)
     {
-        echo "<div id = color$color>";
+        echo "<div id = game>";
         echo "<table>";
         foreach($allPlayer as $player)
         {
