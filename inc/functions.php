@@ -3,8 +3,8 @@
     function initArrayWithDeck()
     {
         $cards = array(
-            'points'=> 0,
-            'card' =>'');
+            'card' =>'',
+            'points'=> 0);
         
         for($i = 0; $i < 52; $i++)
         {
@@ -46,8 +46,9 @@
         foreach($cards as $c)
         {
             echo $i;
-            echo "<img src ='".$c['card']."' /> <br/>" ;
+            echo "<img src = '" . $c['card'] . "' /> <br/>" ;
             $i++;
+            
         }
     }
 
