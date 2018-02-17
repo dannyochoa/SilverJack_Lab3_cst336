@@ -95,6 +95,10 @@
             if($temp == 0 || $temp == null){
                 $temp = array_pop($cards);
             }
+            
+            if(count($ans) > 10) // Limit for amount of cards to pull - Reason: Display of Points will move down
+                break;
+                
             array_push($ans['playerHand'] ,$temp['card']);
             $ans['playerPoints'] =  $ans['playerPoints'] + $temp['points'];
            // array_push($ans['playerHand'] ,$temp['card']);
