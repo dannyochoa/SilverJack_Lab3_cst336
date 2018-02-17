@@ -17,13 +17,13 @@ include 'inc/functions.php'
                 play();
             ?>
         </div>
-        
     </body>
-    
     <footer>
-        <form>
-            <input type = "submit" value = "Play Again!"/>
-        </form>
+        <div id="playButton">
+                <form>
+                    <input type = "submit" value = "Play Again!"/>
+                </form>
+        </div>
     </footer>
 
 </html>

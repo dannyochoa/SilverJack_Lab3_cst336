@@ -5,6 +5,7 @@ input[type=submit] {
     background:green; 
     border:0 none;
     cursor:pointer;
+<<<<<<< HEAD
     border-radius: 5px; 
 }
 
@@ -13,4 +14,25 @@ h1 {
     background-color: black;
     color: white;
     text-align: center;
+=======
+    border-radius: 5px;
+}
+
+#playButton{
+    text-align: center;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+th {
+    float: left;
+}
+
+#game {
+    width: 80%;
+    margin: 0 auto;
+>>>>>>> 600efcce5a1610d564e063fcfbaa9a334e21a16b
 }
