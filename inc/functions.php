@@ -42,8 +42,46 @@
         }
     }
 
+
+    function printGameState($allPlayer)
+    {
+        foreach($allPlayer as $player)
+        {
+            echo "<img src ='".$player['imgURL']."' />" ;
+            echo $player['name'] . "<br/>";
+        }
+    }
     function play()
     {
+        
+                        
+        $player1 = array(
+            'name'=>'Daniel',
+            'imgURL' => './img/user_img/Daniel.jpg',
+            'hand' => array(),
+            'points' => 0
+            );
+        $player2 = array(
+            'name'=>'Gilbert',
+            'imgURL' => './img/user_img/Gilbert.jpg',
+            'hand' => array(),
+            'points' => 0);
+        $player3 = array(
+            'name'=>'Raymond',
+            'imgURL' => './img/user_img/raymond.png',
+            'hand' => array(),
+            'points' => 0);
+        $player4 = array(
+            'name'=>'Brian',
+            'imgURL' => './img/user_img/Brian.png',
+            'hand' => array(),
+            'points' => 0
+            );
+        
+        $allPlayer = array($player1, $player2, $player3, $player4);
+        
+                
+        printGameState($allPlayer);
         $cards = initArrayWithCards();
         printCards($cards);
     }
