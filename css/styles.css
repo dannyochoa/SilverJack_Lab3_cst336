@@ -33,3 +33,9 @@ th {
     width: 80%;
     margin: 0 auto;
 }
+
+#points {
+    float: right;
+    padding-left: 5em;
+    margin: 0 auto;
+}

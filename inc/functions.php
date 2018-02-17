@@ -1,5 +1,6 @@
 <?php
     
+    // Step 1: Retrieve Cards
     function initArrayWithDeck()
     {
         $cards = array(
@@ -48,7 +49,7 @@
         }
     }
 
-
+    // Step 3: Prints Players Names, Pics, Points
     function printGameState($allPlayer)
     {
         echo "<div id = game>";
@@ -57,7 +58,7 @@
         {
             echo "<tr>";
             echo "<th>";
-            //echo "<img src ='".$player['imgURL']."' /> <br/>" ;
+            echo "<img src ='".$player['imgURL']."' /> <br/>" ;
             echo $player['name'] . "<br/>";
             echo "</th>";
             echo "<th>";
@@ -68,13 +69,15 @@
             echo "</th>";
             echo "<th id = points>";
             echo $player['points'] . "</br>";
-             echo "</th>";
+            echo "</th>";
             echo "</tr>";
         }
         echo "</table>";
         echo "</div>";
     }
     
+    // Step 2: Retrieves Cards & Points from Cards
+    //  - also, returns remaining cards
     function getHand($cards)
     {
         $ans = array(
