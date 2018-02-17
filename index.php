@@ -4,6 +4,7 @@ include 'inc/functions.php'
 <!DOCTYPE html>
 <html>
     <head>
+        <h1>SilverJack</h1>
         <style>
             @import url("css/styles.css");
         </style>
@@ -15,11 +16,14 @@ include 'inc/functions.php'
             <?php
                 play();
             ?>
-            <form>
-                <input type = "submit" value = "Play Again!"/>
-            </form>
         </div>
         
     </body>
+    
+    <footer>
+        <form>
+            <input type = "submit" value = "Play Again!"/>
+        </form>
+    </footer>
 
 </html>

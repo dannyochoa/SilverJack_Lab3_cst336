@@ -57,7 +57,7 @@
         {
             echo "<tr>";
             echo "<th>";
-            echo "<img src ='".$player['imgURL']."' /> <br/>" ;
+            //echo "<img src ='".$player['imgURL']."' /> <br/>" ;
             echo $player['name'] . "<br/>";
             echo "</th>";
             echo "<th>";
