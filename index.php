@@ -15,8 +15,11 @@ include 'inc/functions.php'
             <?php
                 play();
             ?>
-        
+            <form>
+                <input type = "submit" value = "Play Again!"/>
+            </form>
         </div>
         
     </body>
+
 </html>
