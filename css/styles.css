@@ -5,5 +5,23 @@ input[type=submit] {
     background:green; 
     border:0 none;
     cursor:pointer;
-    border-radius: 5px; 
+    border-radius: 5px;
+}
+
+#playButton{
+    text-align: center;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+th {
+    float: left;
+}
+
+#game {
+    width: 80%;
+    margin: 0 auto;
 }
