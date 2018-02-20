@@ -1,9 +1,10 @@
 <?php
-include 'inc/functions.php'
+    include 'inc/functions.php'
 ?>
 <!DOCTYPE html>
 <html>
     <head>
+        <h1>SilverJack</h1>
         <style>
             @import url("css/styles.css");
         </style>
@@ -12,14 +13,17 @@ include 'inc/functions.php'
     
     <body>
         <div id = "main">
-            <form>
-                <?php
-                    play();
-                ?>
-                <input type = "submit" value = "Play Again!"/>
-            </form>
+            <?php
+                play();
+            ?>
         </div>
-        
     </body>
+    <footer>
+        <div id="playButton">
+                <form>
+                    <input type = "submit" value = "Play Again!"/>
+                </form>
+        </div>
+    </footer>
 
 </html>

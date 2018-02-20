@@ -1,0 +1,45 @@
+input[type=submit] {
+    padding:5px 15px; 
+    font-size: 30px;
+    color: black;
+    background:green; 
+    border:0 none;
+    cursor:pointer;
+    border-radius: 5px; 
+}
+
+h1 {
+    font-size: 5em;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#playButton{
+    text-align: center;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+th {
+    float: left;
+}
+
+#game {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#points {
+    float: right;
+    padding-left: 5em;
+    margin: 0 auto;
+}
+
+#boxName {
+    background-color: orange;
+}

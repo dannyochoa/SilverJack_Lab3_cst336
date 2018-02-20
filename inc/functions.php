@@ -1,5 +1,6 @@
 <?php
     
+    // Step 1: Retrieve Cards
     function initArrayWithDeck()
     {
         $cards = array(
@@ -42,30 +43,43 @@
     function printCards($cards)
     {
         $i = 0;
-        foreach($cards as $c)
+        for($i = 0; $i < 52; $i++)
         {
-            echo $i;
-            echo "<img src = '" . $c['card'] . "' /> <br/>" ;
-            $i++;
-            
+            echo "<img src ='". $cards[$i]['card']."' /> <br/>" ;
         }
     }
 
-
+    // Step 3: Prints Players Names, Pics, Points
     function printGameState($allPlayer)
     {
+        echo "<div id = game>";
+        echo "<table>";
         foreach($allPlayer as $player)
         {
-           // echo "<img src ='".$player['imgURL']."' />" ;
+            echo "<tr>";
+            echo "<th>";
+            echo "<img src ='".$player['imgURL']."' /> <br/>" ;
+            echo "<div id=boxName>";
             echo $player['name'] . "<br/>";
+            echo "</div>";
+            echo "</th>";
+            echo "<th>";
             foreach($player['hand'] as $card)
             {
                 echo "<img src ='". $card ."' />" ;
             }
+            echo "</th>";
+            echo "<th id = points>";
             echo $player['points'] . "</br>";
+            echo "</th>";
+            echo "</tr>";
         }
+        echo "</table>";
+        echo "</div>";
     }
     
+    // Step 2: Retrieves Cards & Points from Cards
+    //  - also, returns remaining cards
     function getHand($cards)
     {
         $ans = array(
@@ -83,10 +97,11 @@
             if($temp == 0 || $temp == null){
                 $temp = array_pop($cards);
             }
-            //print_r($temp);
-            //print_r($temp['card']);
-            //echo "</br>";
-            array_push($ans['playerHand'] ,$temp['card']);
+            
+            if(count($ans) > 10) // Limit for amount of cards to pull - Reason: Display of Points will move down
+                break;
+                
+            array_push($ans['playerHand'], $temp['card']);
             $ans['playerPoints'] =  $ans['playerPoints'] + $temp['points'];
            // array_push($ans['playerHand'] ,$temp['card']);
            // $ans['points'] = $ans['points'] + $temp['points'];
@@ -124,7 +139,6 @@
         
         $allPlayer = array($player1, $player2, $player3, $player4);
         $cards = initArrayWithDeck();
-        //printCards($cards);
         shuffle($cards);
         for($i = 0; $i < 4; $i++)
         {
@@ -142,23 +156,22 @@
     function getWinner($allPlayer){
         asort($allPlayer);
         $i=0;
-        foreach($allPlayer as $player){
-            if($player['points']>42){
-                unset($allPlayer[$i]);
-            }
-            $i + 1;
-        }
-        $j=0;
-        foreach($allPlayer as $player){
-            if($player[$j]['points']==42 && $player[$j + 1]['points']==42){
-                echo $player[$j]['name'] . $player[$j + 1]['name'] ." is the winner!";
-                break;
-            }
-            elseif($player[$j]['points']==42) echo $player[$j]['name'] . " is the winner!";
-            else{
-                
-                echo $player[$j] . " is the winner!";
-            }
-        }
+        $winner = array();
+        // foreach($allPlayer as $player){
+        //     if($player['points']>42){
+        //         unset($allPlayer[$i]);
+        //     }
+        //     $i + 1;
+        // }
+        // $length = count($allPlayer);
+        // for($i = 0; i<$length;$i++){
+        //     if($player[$i]['points'] == 42){
+        //         echo $player[$i]['name'] . " is the winner!";
+        //     }
+        //     if($player[$i]['points'] > $player[$i + 1]['points']){
+        //         echo $player['name'] . " is the winner!";
+        //     }
+        // }
+        
     }
 ?>
