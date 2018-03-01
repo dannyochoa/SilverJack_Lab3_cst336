@@ -144,11 +144,8 @@
     }
     
     function findWinner($allPlayer){
-        $winnersMax = array();
-        $winnersNum = array();
-        $winners = array();
+        $winnersNum = $winnersMax = $winners = $points = array();
         $pointWinner = 0;
-        $points = array();
         $i =0;
         $j=0;
         
