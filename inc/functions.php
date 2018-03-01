@@ -173,8 +173,7 @@
             $j++;
         }
         
-        //Finds the max of the array(excluding the winners' points and players' points above 42)
-        $pointWinner= max($points);
+        $pointWinner= max($points); //Finds the max of the array(excluding the winners' points and players' points above 42)
         
         //Finds the player with the winning points and pushes the player's name into an array
         foreach($allPlayer as $player){
@@ -205,29 +204,34 @@
         $checkPoints=array();
         $totalPoints=0;
         
+        //Pushes the points in seperate array depending on the range of the value
         foreach($allPlayer as $player){
             if($player['points']==42){array_push($straightPoints, $player['points']);}
             elseif($player['points']<42){array_push($checkPoints, $player['points']);}
             else{$totalPoints += intval($player['points']);}
         }
         
+        //if $straightPoints(Holds the winning number 42) has elements, then push the remaining points in the $loserPoints array
         if(count($straightPoints)>0){
             for($i=0;$i<=count($checkPoints);$i++){
                 array_push($losersPoints, $checkPoints[$i]);
             }
+            //Add up all losers' points into a placeholder called $totalPoints
             for($z=0;$z<=count($losersPoints);$z++){
                 $totalPoints+=intval($losersPoints[$z]);
             }
             return $totalPoints;
         }
         else{
-            $pointWinner= max($checkPoints);
+            $pointWinner= max($checkPoints); //Gets the max of the array $checkPoints
             for($i = 0;$i<=count($checkPoints);$i++){
+                //Checks if the array has the winning point
                 if($checkPoints[$i]==$pointWinner){
-                    unset($checkPoints[$i]);
+                    unset($checkPoints[$i]); //Deletes the winning number from the array
                 }
-                array_push($losersPoints, $checkPoints[$i]);
+                array_push($losersPoints, $checkPoints[$i]); // Pushes the remaining points into an array that holds the losers' points
             }
+            //Adds up all losers' points
             for($z=0;$z<=count($losersPoints);$z++){
                 $totalPoints+=intval($losersPoints[$z]);
             }
