@@ -15,7 +15,12 @@ h1 {
     text-align: center;
     border-radius: 5px;
 }
-
+h2{
+    font-size: 4em;
+    color: black;
+    float: right;
+    clear: left;
+}
 #playButton{
     text-align: center;
 }
@@ -42,4 +47,7 @@ th {
 
 #boxName {
     background-color: orange;
+}
+#printWinner{
+    float: right;
 }

@@ -238,9 +238,9 @@
         //Print out all the winner(s) with points earned 
         else{
             for($i = 0; $i<count($winners);$i++){
-                echo $winners[$i] . ", ";
+                echo "<h2>" .$winners[$i] . ", ";
             }
-            echo " wins " . $totalPoints . " points!!!";
+            echo " wins " . $totalPoints . " points!!!</h2>";
         }
     }
 ?>
