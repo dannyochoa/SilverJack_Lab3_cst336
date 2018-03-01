@@ -155,6 +155,8 @@
         $points = array();
         $i =0;
         $j=0;
+        
+        //Inserts all the points from players into an array
         foreach($allPlayer as $player){
             if($player['points']<=42){
                 $points[$i] = $player['points'];
@@ -162,6 +164,7 @@
             $i++;
         }
         
+        //Pushes players' name with 42 points into an array that holds the names of the winners
         foreach($allPlayer as $player){
             if($points[$j]==42){
                 $winnersMax[]=$player['name'];
@@ -169,19 +172,25 @@
             }
             $j++;
         }
+        
+        //Finds the max of the array(excluding the winners' points and players' points above 42)
         $pointWinner= max($points);
         
+        //Finds the player with the winning points and pushes the player's name into an array
         foreach($allPlayer as $player){
             if($player['points'] == $pointWinner){
                 $winnersNum[]=$player['name'];
             }
         }
+        
+        //Returns the winners if players earn 42
         if(count($winnersMax)>0){
             for($i = 0;$i<count($winnersMax);$i++){
                 $winners[$i] = $winnersMax[$i];
             }
             return $winners;
         }
+        //Returns the winners with points under 42
         if(count($winnersNum)>0){
             for($i = 0;$i<count($winnersNum);$i++){
                 $winners[$i]=$winnersNum[$i];
