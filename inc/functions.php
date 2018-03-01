@@ -136,15 +136,11 @@
             
         }
         
-        //Randomize Players before 
-        shuffle($allPlayer);
-        printGameState($allPlayer);
-        //Determines the names of the winners
-        $winners=findWinner($allPlayer);
-        //Calculates the winners points
-        $totalPoints=pointsEarned($allPlayer,$winners);
-        //Prints out the Winners with points earned or prints out no winners.
-        printWinner($winners,$totalPoints);
+        shuffle($allPlayer);//Randomize Players before
+        printGameState($allPlayer);//Print out the Game
+        $winners=findWinner($allPlayer);//Determines the names of the winners
+        $totalPoints=pointsEarned($allPlayer,$winners);//Calculates the winners points
+        printWinner($winners,$totalPoints);//Prints out the Winners with points earned or prints out no winners
     }
     
     function findWinner($allPlayer){
