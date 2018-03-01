@@ -240,9 +240,11 @@
     }
     
     function printWinner($winners,$totalPoints){
+        //If there is no winners echo No Winners
         if(count($winners)==0){
-            echo "No winners!";
+            echo "No Winners!";
         }
+        //Print out all the winner(s) with points earned 
         else{
             for($i = 0; $i<count($winners);$i++){
                 echo $winners[$i] . ", ";
