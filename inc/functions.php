@@ -135,10 +135,15 @@
             $allPlayer[$i]['points'] = $temp['playerPoints'];
             
         }
+        
+        //Randomize Players before 
         shuffle($allPlayer);
         printGameState($allPlayer);
+        //Determines the names of the winners
         $winners=findWinner($allPlayer);
+        //Calculates the winners points
         $totalPoints=pointsEarned($allPlayer,$winners);
+        //Prints out the Winners with points earned or prints out no winners.
         printWinner($winners,$totalPoints);
     }
     
