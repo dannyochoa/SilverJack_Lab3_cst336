@@ -192,9 +192,7 @@
     }
     
     function pointsEarned($allPlayer,$winners){
-        $losersPoints= array();
-        $straightPoints = array();
-        $checkPoints=array();
+        $losersPoints = $straightPoints = $checkPoints= array();
         $totalPoints=0;
         
         //Pushes the points in seperate array depending on the range of the value
