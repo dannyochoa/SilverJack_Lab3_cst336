@@ -166,28 +166,30 @@
             $j++;
         }
         
-        $pointWinner= max($points); //Finds the max of the array(excluding the winners' points and players' points above 42)
-        
-        //Finds the player with the winning points and pushes the player's name into an array
-        foreach($allPlayer as $player){
-            if($player['points'] == $pointWinner){
-                $winnersNum[]=$player['name'];
+        if(count($points)>0){ //Fixes no winner bug
+            $pointWinner= max($points); //Finds the max of the array(excluding the winners' points and players' points above 42)
+            
+            //Finds the player with the winning points and pushes the player's name into an array
+            foreach($allPlayer as $player){
+                if($player['points'] == $pointWinner){
+                    $winnersNum[]=$player['name'];
+                }
             }
-        }
-        
-        //Returns the winners if players earn 42
-        if(count($winnersMax)>0){
-            for($i = 0;$i<count($winnersMax);$i++){
-                $winners[$i] = $winnersMax[$i];
+            
+            //Returns the winners if players earn 42
+            if(count($winnersMax)>0){
+                for($i = 0;$i<count($winnersMax);$i++){
+                    $winners[$i] = $winnersMax[$i];
+                }
+                return $winners;
             }
-            return $winners;
-        }
-        //Returns the winners with points under 42
-        if(count($winnersNum)>0){
-            for($i = 0;$i<count($winnersNum);$i++){
-                $winners[$i]=$winnersNum[$i];
+            //Returns the winners with points under 42
+            if(count($winnersNum)>0){
+                for($i = 0;$i<count($winnersNum);$i++){
+                    $winners[$i]=$winnersNum[$i];
+                }
+                return $winners;
             }
-            return $winners;
         }
     }
     
@@ -213,7 +215,7 @@
             }
             return $totalPoints;
         }
-        else{
+        if(count($checkPoints)>0){//Fixes no winner bug
             $pointWinner= max($checkPoints); //Gets the max of the array $checkPoints
             for($i = 0;$i<=count($checkPoints);$i++){
                 //Checks if the array has the winning point
@@ -233,12 +235,12 @@
     function printWinner($winners,$totalPoints){
         //If there is no winners echo No Winners
         if(count($winners)==0){
-            echo "No Winners!";
+            echo "<h2>No Winners!</h2>";
         }
         //Print out all the winner(s) with points earned 
         else{
             for($i = 0; $i<count($winners);$i++){
-                echo "<h2>" .$winners[$i] . ", ";
+                echo "<h2>" . $winners[$i] . ", ";
             }
             echo " wins " . $totalPoints . " points!!!</h2>";
         }
