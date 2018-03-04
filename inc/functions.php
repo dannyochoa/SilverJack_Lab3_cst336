@@ -249,10 +249,16 @@
         }
         //Print out all the winner(s) with points earned 
         else{
+            echo "<h2>";
             for($i = 0; $i<count($winners);$i++){
-                echo "<h2>" . $winners[$i] . ", ";
+                echo $winners[$i] . ", ";
             }
-            echo " wins " . $totalPoints . " points!!!</h2>";
+            if(count($winners) > 1){
+                echo " each wins " . $totalPoints . " points!!!</h2>";
+            }
+            else{
+                echo " wins " . $totalPoints . " points!!!</h2>";
+            }
         }
     }
 ?>
