@@ -101,8 +101,11 @@
     
     function play()
     {
+        //contains image addresses for each user
         $images = array('./img/user_img/Gilbert.jpg','./img/user_img/raymond.png','./img/user_img/Brian.png','./img/user_img/Daniel.jpg');
         shuffle($images);
+        //creates up four associate arrays, one for each player
+        //the arrays have a name, an image, a hand that is created later, and points
         $player1 = array(
             'name'=>'Daniel',
             'imgURL' => '',
@@ -125,15 +128,16 @@
             'hand' => array(),
             'points' => 0
             );
-         $player1['imgURL']= $images[count($images)-1];
+        //adds the image links from the array to the respective users
+        $player1['imgURL']= $images[count($images)-1];
          array_pop($images);
         $player2['imgURL']= $images[count($images)-1];
          array_pop($images);
-         $player3['imgURL']= $images[count($images)-1];
+        $player3['imgURL']= $images[count($images)-1];
          array_pop($images);
         $player4['imgURL']= $images[count($images)-1];
          array_pop($images);
-                
+        
         $allPlayer = array($player1, $player2, $player3, $player4);
         $deck = initArrayWithDeck();
         shuffle($deck);
